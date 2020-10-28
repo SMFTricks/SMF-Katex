@@ -16,8 +16,16 @@ class Katex
 	public static function load_customs()
 	{
 		loadCSSFile('https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css', array('external' => true, 'minimize' => false, 'attributes' => ['integrity' => 'sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X', 'crossorigin' => 'anonymous']));
-		loadJavaScriptFile('https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js', array('external' => true, 'minimize' => false, 'attributes' => ['integrity' => 'sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4', 'crossorigin' => 'anonymous', 'defer' => '']));
-		loadJavaScriptFile('https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js', array('external' => true, 'minimize' => false, 'attributes' => ['integrity' => 'sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa', 'crossorigin' => 'anonymous', 'onload' => 'renderMathInElement(document.body);', 'defer' => '']));
+		loadJavaScriptFile('https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js', array('external' => true, 'minimize' => false, 'attributes' => ['integrity' => 'sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4', 'crossorigin' => 'anonymous'], 'defer' => true));
+		loadJavaScriptFile('https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js', array('external' => true, 'minimize' => false, 'attributes' => ['integrity' => 'sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa', 'crossorigin' => 'anonymous', 'onload' => 'renderMathInElement(document.body);'], 'defer' => true));
+		// addInlineJavaScript('
+		// 	katex.render("", "", {
+		// 		displayMode: false,
+		// 		macros: {
+		// 		"\\RR": "\\mathbb{R}"
+		// 		}
+		// 	});',
+		// true);
 	}
 
 	public static function bbc_buttons(&$bbc_tags, &$editor_tag_map)
