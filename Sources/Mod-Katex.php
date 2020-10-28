@@ -26,7 +26,7 @@ class Katex
 		$bbc_tags[count($bbc_tags)-1][] = [
 			'image' => 'katex_inline',
 			'code' => 'katex_inline',
-			'before' => '[katex]',
+			'before' => '[katex=inline]',
 			'after' => '[/katex]',
 			'description' => 'KaTeX'
 		];
