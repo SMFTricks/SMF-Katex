@@ -5,7 +5,7 @@
  * @version 1.0
  * @author Diego Andrés <diegoandres_cortes@outlook.com>
  * @copyright Copyright (c) 2020, SMF Tricks
- * @license https://www.mozilla.org/en-US/MPL/2.0/
+ * @license https://www.gnu.org/licenses/gpl-3.0.en.html
  */
 
 if (!defined('SMF'))
@@ -18,19 +18,18 @@ class Katex
 		loadCSSFile('https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css', array('external' => true, 'minimize' => false, 'attributes' => ['integrity' => 'sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X', 'crossorigin' => 'anonymous']));
 		loadJavaScriptFile('https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js', array('external' => true, 'minimize' => false, 'attributes' => ['integrity' => 'sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4', 'crossorigin' => 'anonymous'], 'defer' => true));
 		loadJavaScriptFile('https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js', array('external' => true, 'minimize' => false, 'attributes' => ['integrity' => 'sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa', 'crossorigin' => 'anonymous', 'onload' => 'renderMathInElement(document.body);'], 'defer' => true));
-		// addInlineJavaScript('
-		// 	katex.render("", "", {
-		// 		displayMode: false,
-		// 		macros: {
-		// 		"\\RR": "\\mathbb{R}"
-		// 		}
-		// 	});',
-		// true);
 	}
 
 	public static function bbc_buttons(&$bbc_tags, &$editor_tag_map)
 	{
 		$bbc_tags[count($bbc_tags)-1][] = [];
+		$bbc_tags[count($bbc_tags)-1][] = [
+			'image' => 'katex_inline',
+			'code' => 'katex_inline',
+			'before' => '[katex]',
+			'after' => '[/katex]',
+			'description' => 'KaTeX'
+		];
 		$bbc_tags[count($bbc_tags)-1][] = [
 			'image' => 'katex',
 			'code' => 'katex',
