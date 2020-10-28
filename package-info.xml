@@ -9,12 +9,12 @@
 		<!-- Mod Readme -->
 		<readme lang="english" parsebbc="true" type="file">readme.txt</readme>
 		<!-- Credits -->
-		<credits url="https://smftricks.com" license="GPL 3.0" copyright="SMF Tricks" licenseurl="https://www.gnu.org/licenses/gpl-3.0.en.html">KaTeX for SMF based on SMF MathJax by digger</credits>
+		<credits url="https://smftricks.com" license="GPL 3.0" copyright="SMF Tricks" licenseurl="https://www.gnu.org/licenses/gpl-3.0.en.html">KaTeX for SMF</credits>
 		<!-- License -->
 		<license type="inline" parsebbc="false">
 			This Source Code Form is subject to the terms of the GNU General Public
-			License, v. 3.0. If a copy of the GPL was not distributed with this
-			file, You can obtain one at https://www.gnu.org/licenses/gpl-3.0.en.html.
+			License, v. 3.0. If a copy of the GPL was not distributed with this file, 
+			You can obtain one at https://www.gnu.org/licenses/gpl-3.0.en.html.
 		</license>
 		<!-- BBC Files -->
 		<require-dir name="Sources" destination="$boarddir">Source file</require-dir>
@@ -24,6 +24,8 @@
 		<hook hook="integrate_load_theme" function="Katex::load_customs" file="$sourcedir/Mod-Katex.php" />
 		<hook hook="integrate_bbc_buttons" function="Katex::bbc_buttons" file="$sourcedir/Mod-Katex.php" />
 		<hook hook="integrate_bbc_codes" function="Katex::bbc_code" file="$sourcedir/Mod-Katex.php" />
+		<hook hook="integrate_post_start" function="Katex::preview" file="$sourcedir/Mod-Katex.php" />
+		<hook hook="integrate_display_buttons" function="Katex::quick_edit" file="$sourcedir/Mod-Katex.php" />
 	</install>
 	
 	<uninstall for="2.1 - 2.1.99, 2.1 Beta 1 - 3">
@@ -31,6 +33,8 @@
 		<hook hook="integrate_load_theme" function="Katex::load_customs" file="$sourcedir/Mod-Katex.php" reverse="true" />
 		<hook hook="integrate_bbc_buttons" function="Katex::bbc_buttons" file="$sourcedir/Mod-Katex.php" reverse="true" />
 		<hook hook="integrate_bbc_codes" function="Katex::bbc_code" file="$sourcedir/Mod-Katex.php" reverse="true" />
+		<hook hook="integrate_post_start" function="Katex::preview" file="$sourcedir/Mod-Katex.php" reverse="true" />
+		<hook hook="integrate_display_buttons" function="Katex::quick_edit" file="$sourcedir/Mod-Katex.php" reverse="true" />
 		<!-- Source Files -->
 		<remove-file name="$sourcedir/Mod-Katex.php">Source file</remove-file>
 		<!-- BBC images -->
